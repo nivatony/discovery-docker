@@ -9,7 +9,7 @@ metadata:
     type: NodePort
     ports:
       port: 80
-      nodePort: 30225
+      nodePort: 30080
     selector:
       name: nginx
 
