@@ -1,19 +1,22 @@
-apiVersion: app/v1
-Kind: Deployment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-    name: nginx-deployement
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
 spec:
-    selector:
-        matchlabels:
-            app: nginx
-    replicas: 2
-    template:
-        metadata:
-            labels:
-                app: nginx
-        spec:
-            containers:
-            - name: nginx
-              image: nginx
-              ports:
-              - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+                - containerPort: 80
